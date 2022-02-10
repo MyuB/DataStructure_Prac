@@ -2,44 +2,44 @@
 // Created by Jay on 2022-02-10.
 //
 
-//#include <bits/stdc++.h>
-//#define endl '\n'
-//using namespace std;
-//
-//class node {
-//public:
-//	int data;
-//	int listPosition;
-//	int dataPosition;
-//};
-//
-//vector<int> merge(const vector<vector<int>>& input) {
-//	auto comparator = [](const node& left, const node& right) {
-//		if (left.data == right.data) return left.listPosition > right.listPosition;
-//		return left.data > right.data;
-//	};
-//
-//	vector<node> heap;
-//	for (int i = 0; i < input.size(); i++) {
-//		heap.push_back({input[i][0], i, 0});
-//		push_heap(heap.begin(), heap.end(), comparator);
-//	}
-//	vector<int> result;
-//	while(!heap.empty()) {
-//		pop_heap(heap.begin(), heap.end(), comparator);
-//		auto min = heap.back();
-//		heap.pop_back();
-//
-//		result.push_back(min.data);
-//		int nextIndex = min.dataPosition + 1;
-//		if (nextIndex < input[min.listPosition].size()) {
-//			heap.push_back({input[min.listPosition][nextIndex], min.listPosition, nextIndex});
-//			push_heap(heap.begin(), heap.end(), comparator);
-//		}
-//	}
-//	return result;
-//}
-//
+#include <bits/stdc++.h>
+#define endl '\n'
+using namespace std;
+
+class node {
+public:
+	int data;
+	int listPosition;
+	int dataPosition;
+};
+
+vector<int> merge(const vector<vector<int>>& input) {
+	auto comparator = [](const node& left, const node& right) {
+		if (left.data == right.data) return left.listPosition > right.listPosition;
+		return left.data > right.data;
+	};
+
+	vector<node> heap;
+	for (int i = 0; i < input.size(); i++) {
+		heap.push_back({input[i][0], i, 0});
+		push_heap(heap.begin(), heap.end(), comparator);
+	}
+	vector<int> result;
+	while(!heap.empty()) {
+		pop_heap(heap.begin(), heap.end(), comparator);
+		auto min = heap.back();
+		heap.pop_back();
+
+		result.push_back(min.data);
+		int nextIndex = min.dataPosition + 1;
+		if (nextIndex < input[min.listPosition].size()) {
+			heap.push_back({input[min.listPosition][nextIndex], min.listPosition, nextIndex});
+			push_heap(heap.begin(), heap.end(), comparator);
+		}
+	}
+	return result;
+}
+
 //int main() {
 //	vector<int> v1 = {1, 3, 8, 15, 105};
 //	vector<int> v2 = {2, 3, 10, 11, 16, 20, 25};

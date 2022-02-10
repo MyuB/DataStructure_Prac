@@ -135,4 +135,5 @@ private:
 //		std::cout << "원소 12는 트리에 있습니다." << endl;
 //	else
 //	std::cout << "원소 12는 트리에 없습니다." << endl;
+//	return 0;
 //}

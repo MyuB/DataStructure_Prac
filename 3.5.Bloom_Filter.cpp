@@ -1,48 +1,48 @@
-////
-//// Created by Jay on 2022-02-11.
-////
 //
-//#include <bits/stdc++.h>
-//#define endl '\n'
-//using namespace std;
+// Created by Jay on 2022-02-11.
 //
-//class bloom_filter {
-//	vector<bool> data;
-//	int nBits;
-//
-//	int hash(int num, int key) {
-//		switch (num) {
-//			case 0: return key % nBits;
-//			case 1: return (key / 7) % nBits;
-//			case 2: return (key / 11) % nBits;
-//		}
-//
-//		return 0;
-//	}
-//
-//public:
-//	bloom_filter(int n) {
-//		this->nBits = n;
-//		this->data = vector<bool>(nBits, false);
-//	}
-//
-//	void lookup(int key) {
-//		bool result = data[hash(0, key)] & data[hash(1, key)] & data[hash(2, key)];
-//		if (result) cout << key << ": 있을 수 있음" << endl;
-//		else cout << key << ": 절대 없음" << endl;
-//	}
-//
-//	void insert(int key) {
-//		data[hash(0, key)] = true;
-//		data[hash(1, key)] = true;
-//		data[hash(2, key)] = true;
-//		cout << key << "을 삽입" << endl;
-//
-//		for (auto a : data) cout << a << " ";
-//		cout << endl;
-//	}
-//};
-//
+
+#include <bits/stdc++.h>
+#define endl '\n'
+using namespace std;
+
+class bloom_filter {
+	vector<bool> data;
+	int nBits;
+
+	int hash(int num, int key) {
+		switch (num) {
+			case 0: return key % nBits;
+			case 1: return (key / 7) % nBits;
+			case 2: return (key / 11) % nBits;
+		}
+
+		return 0;
+	}
+
+public:
+	bloom_filter(int n) {
+		this->nBits = n;
+		this->data = vector<bool>(nBits, false);
+	}
+
+	void lookup(int key) {
+		bool result = data[hash(0, key)] & data[hash(1, key)] & data[hash(2, key)];
+		if (result) cout << key << ": 있을 수 있음" << endl;
+		else cout << key << ": 절대 없음" << endl;
+	}
+
+	void insert(int key) {
+		data[hash(0, key)] = true;
+		data[hash(1, key)] = true;
+		data[hash(2, key)] = true;
+		cout << key << "을 삽입" << endl;
+
+		for (auto a : data) cout << a << " ";
+		cout << endl;
+	}
+};
+
 //int main()
 //{
 //	bloom_filter bf(7);

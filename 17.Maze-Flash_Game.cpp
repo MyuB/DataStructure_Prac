@@ -14,7 +14,7 @@ struct Edge {
 
 const int UNKNOWN = INT_MAX;
 
-bool ReadTestCase(string filename, int& V, vector<Edge>& edges) {
+bool ReadTestCase(const string& filename, int& V, vector<Edge>& edges) {
 	ifstream infile(filename);
 
 	if (!infile.is_open()) {
@@ -110,7 +110,7 @@ bool HasNegativeCycle(const vector<Edge>& edges, vector<int> distance) {
 	return false;
 }
 
-int BellmanFord(vector<Edge> edges, int V, int start) {
+int BellmanFord(vector<Edge>& edges, int V, int start) {
 	vector<int> distance(V, UNKNOWN);
 	distance[start] = 0;
 
